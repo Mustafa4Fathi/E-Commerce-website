@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const sortSelect = document.getElementById("sort");
     const products = document.querySelectorAll(".clothes > div"); // nodeList
+    const favIcons = document.querySelectorAll('.fav-icon');
 
     function sort(order) {
         const productsArray = Array.from(products); // converted from nodeList to an array to be able to sort it
@@ -28,9 +29,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+    
+    
+    favIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            const product = icon.closest('.product-1, .product-2, .product-3');
+            const productDetails = {
+                image: product.querySelector('img').src,
+                name: product.querySelector('p').textContent,
+                price: product.querySelector('.price').textContent,
+                sizes: Array.from(product.querySelectorAll('.Sizes button')).map(button => button.textContent)
+            };
+            
+            // Store product details in localStorage
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist.push(productDetails);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
 
-
-
-
-
+            alert(`${productDetails.name} added to your wishlist!`);
+        });
+    });
 });
+
+    
+
+
+
+

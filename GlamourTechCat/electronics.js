@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const sortSelect = document.getElementById("sort");
     const products = document.querySelectorAll(".products > div");
+    const favIcons = document.querySelectorAll('.fav-icon');
+    
+
+
 
     function sort(order) {
         const productsArray = Array.from(products);
@@ -25,5 +29,24 @@ document.addEventListener("DOMContentLoaded", () => {
     sortSelect.addEventListener("change", () => {
         const selectedValue = sortSelect.value;
         sort(selectedValue);
+    });
+
+    favIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            const product = icon.closest('.product-1, .product-2, .product-3');
+            const productDetails = {
+                image: product.querySelector('img').src,
+                name: product.querySelector('p').textContent,
+                price: product.querySelector('.price').textContent,
+               
+            };
+            
+            // Store product details in localStorage
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist.push(productDetails);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+            alert(`${productDetails.name} added to your wishlist!`);
+        });
     });
 });

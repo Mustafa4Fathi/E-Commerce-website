@@ -29,7 +29,7 @@ h2{
 
 }
 
-.images{
+.images {
     display: flex;
     margin-top:18px;
     margin-right:100px;
@@ -38,7 +38,9 @@ h2{
 
 }
 
-.images img {
+.images img,.images a img {
+    width: 30px;
+    height: 25px;
     margin-right: 20px; 
 }
 

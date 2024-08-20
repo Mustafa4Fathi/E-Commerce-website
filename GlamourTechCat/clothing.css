@@ -82,9 +82,12 @@ h2{
 
 }
 
-.images img {
+.images img,.images a img {
+    width: 30px;
+    height: 25px;
     margin-right: 20px; 
 }
+
 
 
 h3 {
