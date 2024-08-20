@@ -22,7 +22,8 @@ body{
     font-family: "Poppins", sans-serif;
     font-size: 2.5rem;
     text-align: center;
-    margin: 30px 0;
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
     animation: floatText 1.5s ease-in-out infinite;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -44,7 +45,6 @@ body{
 
 main {
     margin: 0 auto;
-    padding: 20px;
     max-width: 1200px;
 }
 
@@ -54,9 +54,10 @@ main {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
     overflow: hidden;
-    width: 768px;
+    width: 668px;
     max-width: 100%;
-    min-height: 480px;
+    min-height: 400px;
+    margin-bottom: 130px !important;
 }
 
 .container p{
